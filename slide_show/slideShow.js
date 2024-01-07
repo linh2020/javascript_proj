@@ -1,7 +1,3 @@
-//
-//
-//
-
 // Best version
 let images = [1, 2, 3, 4, 5];
 let currentImg = 0;
