@@ -24,9 +24,42 @@
     ></script>
   </head>
   <body>
-    <h2><a href="../index.html">Home</a></h2>
+    <h2><a href="../index.html" class="text-decoration-none">Home</a></h2>
 
     <!----------------------->
-    <h2>Miles to Kilometers Converter</h2>
+
+    <div class="container text-center">
+      <!-- Title -->
+      <div class="top p-3 fw-bold">
+        <span class="title p-4 fs-1">MILES TO KILOMETERS CONVERTER</span>
+      </div>
+
+      <!-- main content - center -->
+      <div class="main-content p-4" style="background-color: #eaf2c6">
+        <p class="desc">
+          Type in a number of miles and click the button to convert the distance
+          to kilometers.
+        </p>
+        <div class="cal-area d-flex gap-3 justify-content-center">
+          <input
+            type="text"
+            name="number"
+            id="input-value"
+            class="form-control w-25"
+          />
+          <button type="button" class="btn btn-primary" id="cd-btn">
+            CONVERT DISTANCE
+          </button>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div
+        class="footer p-3 d-flex justify-content-center"
+        style="background-color: #a1aab7"
+      >
+        <p class="res fs-4 fw-bold">Lorem ipsum dolor sit amet consectetur.</p>
+      </div>
+    </div>
   </body>
 </html>

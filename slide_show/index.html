@@ -24,24 +24,27 @@
     ></script>
   </head>
   <body>
-    <h2><a href="../index.html">Home</a></h2>
-
     <!----------------------->
-    <h2>Slideshow</h2>
-    <div class="img">
-      <img
-        src="./images/1.jpg"
-        alt=""
-        class="src mb-3 object-fit-cover rounded-4"
-        width="400px"
-        height="400px"
-        id="img"
-      />
-    </div>
+    <div class="container">
+      <div class="main-content text-center">
+        <h2><a href="../index.html" class="text-decoration-none">Home</a></h2>
+        <h1>Slideshow</h1>
+        <div class="img">
+          <img
+            src="./images/1.jpg"
+            alt=""
+            class="src mb-3 object-fit-cover rounded-4"
+            width="400px"
+            height="400px"
+            id="img"
+          />
+        </div>
 
-    <div>
-      <a href="#" id="prev" class="btn btn-primary">Previous</a>
-      <a href="#" id="next" class="btn btn-primary">Next</a>
+        <div class="row mx-auto gap-3" style="width: 200px">
+          <a href="#" id="prev" class="col btn btn-primary">Previous</a>
+          <a href="#" id="next" class="col btn btn-primary">Next</a>
+        </div>
+      </div>
     </div>
   </body>
 </html>
