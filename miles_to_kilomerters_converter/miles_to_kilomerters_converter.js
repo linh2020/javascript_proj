@@ -2,16 +2,17 @@
 //
 //
 
-let btn = document.getElementById("cd-btn");
+let form = document.getElementById("convert");
 let res = document.getElementById("res");
 
-btn.addEventListener("click", () => {
-  let miles = document.getElementById("input-value").value;
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let distance = document.getElementById("distance").value;
 
-  if (isNaN(miles)) {
+  if (isNaN(distance)) {
     res.innerHTML = "Please enter number!";
   } else {
-    let km = miles * 1.609344;
-    res.innerHTML = `${miles} mile(s) = ${km} Km(s)`;
+    let km = distance * 1.609344;
+    res.innerHTML = `${distance} mile(s) = ${km} Km(s)`;
   }
 });
