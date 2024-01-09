@@ -28,7 +28,98 @@
       <div class="content text-center">
         <!-- Homepage -->
         <h2><a href="../index.html" class="text-decoration-none">Home</a></h2>
-        <h1>Vacation Destination List</h1>
+
+        <div class="header bg-primary p-2">
+          <h1 class="title p-4">Vacation Destinations Wish List</h1>
+          <p class="desc pb-4">
+            Found exciting places to visit on your next vacation? Use the form
+            below to add them to your wishlist
+          </p>
+        </div>
+        <div class="main-content row gap-5 p-5">
+          <div class="col left-content text-start">
+            <div class="content">
+              <form action="" class="vacation">
+                <div class="form-group mb-3">
+                  <label for="">Destination name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder="Enter the name of the destination"
+                  />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="">Location</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder="Where is it located?"
+                  />
+                </div>
+
+                <div class="form-group mb-3">
+                  <label for="">Photo</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name=""
+                    id=""
+                    aria-describedby="helpId"
+                    placeholder="Enter an image url of the place"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="">Description</label>
+                  <textarea
+                    class="form-control mb-3"
+                    name=""
+                    id=""
+                    rows="3"
+                    placeholder="Where is it located?"
+                  ></textarea>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    id="btn-submit"
+                  >
+                    Add to list
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col right-img">
+            <div class="heading"><h2 class="title p-4">My Wish List</h2></div>
+            <div class="main-content rounded" style="background-color: #bbb">
+              <img
+                src="./images/img-01.jpg"
+                alt=""
+                class="w-100 object-fit-cover p-3"
+              />
+              <div class="details text-start p-3 pt-0">
+                <h4 class="des">Faneuil Hall</h4>
+                <p class="location">Boston, Massachusetts</p>
+                <p class="desc">Near government center in Boston</p>
+                <input
+                  name=""
+                  id="btn-remove"
+                  class="btn btn-primary btn-sm"
+                  type="button"
+                  value="Remove"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
