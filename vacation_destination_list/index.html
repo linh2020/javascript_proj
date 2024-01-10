@@ -37,18 +37,21 @@
           </p>
         </div>
         <div class="main-content row gap-5 p-5">
+          <!-- Left container -->
           <div class="col col-12 col-sm-12 col-md-6 text-start">
             <div class="content">
-              <form action="" class="vacation">
+              <form action="" class="vacation" id="vacation">
                 <div class="form-group mb-3">
                   <label for="">Destination name</label>
                   <input
                     type="text"
                     class="form-control"
-                    name=""
-                    id=""
+                    name="destination_name"
+                    id="destination_name"
                     aria-describedby="helpId"
                     placeholder="Enter the name of the destination"
+                    value="Downtown SJ"
+                    required
                   />
                 </div>
 
@@ -57,10 +60,12 @@
                   <input
                     type="text"
                     class="form-control"
-                    name=""
-                    id=""
+                    name="location"
+                    id="location"
                     aria-describedby="helpId"
                     placeholder="Where is it located?"
+                    value="San Jose"
+                    required
                   />
                 </div>
 
@@ -69,8 +74,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    name=""
-                    id=""
+                    name="photo"
+                    id="photo"
                     aria-describedby="helpId"
                     placeholder="Enter an image url of the place"
                   />
@@ -80,8 +85,8 @@
                   <label for="">Description</label>
                   <textarea
                     class="form-control mb-3"
-                    name=""
-                    id=""
+                    name="description"
+                    id="description"
                     rows="3"
                     placeholder="Where is it located?"
                   ></textarea>
@@ -97,20 +102,33 @@
               </form>
             </div>
           </div>
-          <div class="col right-img">
-            <div class="heading"><h2 class="title p-4">My Wish List</h2></div>
-            <div class="main-content rounded" style="background-color: #bbb">
+
+          <!-- Right container -->
+          <div class="col right-container" id="right-container">
+            <!-- Header -->
+            <div class="heading">
+              <h3 class="title p-4" id="r_title">Enter Destination Details</h3>
+            </div>
+
+            <!-- Card -->
+            <div
+              class="destination_container rounded"
+              id="destination_container"
+              style="background-color: #bbb"
+            >
               <img
                 src="./images/img-01.jpg"
                 alt=""
                 class="w-100 object-fit-cover p-3"
               />
+
+              <!-- Card body -->
               <div class="details text-start p-3 pt-0">
-                <h4 class="des">Faneuil Hall</h4>
-                <p class="location">Boston, Massachusetts</p>
-                <p class="desc">Near government center in Boston</p>
+                <h4 class="name">Destination Name</h4>
+                <p class="location">Destination Location</p>
+                <p class="desc">Destination Description</p>
                 <input
-                  name=""
+                  name="btn-remove"
                   id="btn-remove"
                   class="btn btn-primary btn-sm"
                   type="button"
