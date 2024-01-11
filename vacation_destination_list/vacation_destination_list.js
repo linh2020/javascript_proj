@@ -38,7 +38,7 @@ function createDestinationCard(name, location, photoURL, description) {
   card.setAttribute("style", "background-color: #bbb");
 
   const img = document.createElement("img");
-  img.setAttribute("class", "w-100 object-fit-cover p-3");
+  img.setAttribute("class", "w-100 object-fit-cover p-3 rounded-4");
   img.setAttribute("alt", name);
   if (photoURL.length === 0) img.setAttribute("src", "./images/img-01.jpg");
   else img.setAttribute("src", photoURL);
