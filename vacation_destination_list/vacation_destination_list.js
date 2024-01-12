@@ -1,5 +1,4 @@
 const detailsForm = document.querySelector("#vacation");
-
 detailsForm.addEventListener("submit", handleFormSubmit);
 
 function handleFormSubmit(event) {
