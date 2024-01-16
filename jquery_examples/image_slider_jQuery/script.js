@@ -1,13 +1,4 @@
-// $(document).ready(function () {
-//   //
-//   //
-//   const imageCount = $("#slider ul li").length;
-//   const imageWidth = $("#slider ul li img").first().width();
-// //   alert(imageWidth);
-//   //
-//   //
-// });
-
+//
 $(window).on("load", function () {
   //
   "use strict";
@@ -18,6 +9,15 @@ $(window).on("load", function () {
 
   let leftPosition = 0;
   let counter = 0;
+
+  let sliderInterval = setInterval(() => {
+    //
+    counter++;
+    if (counter == imageCount) counter = 0;
+
+    leftPosition = `-${counter * imageWidth}px`;
+    $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
+  }, 2000);
 
   $("#slider ul").css("width", totalWidth);
 
@@ -42,6 +42,4 @@ $(window).on("load", function () {
     $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
     console.log(211);
   });
-
-  //
 });

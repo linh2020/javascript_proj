@@ -1,0 +1,41 @@
+body {
+  /* padding: 100px; */
+  background-color: #717171;
+}
+
+img {
+  width: 400px;
+  height: 266px;
+  object-fit: cover;
+}
+
+#slider {
+  /* overflow: hidden;
+  width: 400px;
+  height: 266px;
+  position: relative;
+  border: 10px solid #4c4c4c;
+  margin: auto; */
+
+  /*  */
+  width: 400px;
+  overflow: hidden;
+  border: 10px solid #4c4c4c;
+  height: 266px;
+  position: relative;
+  margin: auto;
+}
+
+#slider ul {
+  display: flex;
+  position: absolute;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+}
+
+#slider ul li img {
+  display: block;
+}
