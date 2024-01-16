@@ -10,57 +10,37 @@ $(window).on("load", function () {
   let leftPosition = 0;
   let counter = 0;
 
-  let sliderInterval = setInterval(() => {
-    //
-    counter++;
-    if (counter == imageCount) counter = 0;
-
-    leftPosition = `-${counter * imageWidth}px`;
-    $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
-  }, 2000);
-
   $("#slider ul").css("width", totalWidth);
 
-  const slider = document.querySelector("#slider ul li img");
-
-  // slider.addEventListener("mouseout", function (e) {
-  //   //
-  //   clearInterval(sliderInterval);
-  // });
-
-  slider.addEventListener("mouseover", function (e) {
-    //
-    clearInterval(sliderInterval);
-  });
-
-  // slider.addEventListener("mouseleave", function (e) {
-  //   //
-  //   () => sliderInterval();
-  // });
-
-  // /////////////////////////////////////////////////////////////
-
-  //   next button
-  // $("#next").click(function (e) {
-  //   e.preventDefault();
-
+  // timer - solution 1
+  // setInterval(() => {
   //   counter++;
   //   if (counter == imageCount) counter = 0;
-
   //   leftPosition = `-${counter * imageWidth}px`;
   //   $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
-  // });
+  // }, 3000);
 
-  //   previous button
-  // $("#previous").click(function (e) {
-  //   e.preventDefault();
+  // timer - solution 2
+  let mySlider = setInterval(slider, 3000);
 
-  //   counter--;
-  //   if (counter < 0) counter = imageCount - 1;
-  //   leftPosition = `-${counter * imageWidth}px`;
-  //   $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
-  //   console.log(211);
-  // });
+  function slider() {
+    counter++;
+    if (counter == imageCount) counter = 0;
+    leftPosition = `-${counter * imageWidth}px`;
+    $("#slider ul").animate({ left: leftPosition }, 700, "easeInQuad");
+  }
+
+  document
+    .getElementById("slider")
+    .addEventListener("mouseover", function (param) {
+      clearInterval(mySlider);
+    });
+
+  document
+    .getElementById("slider")
+    .addEventListener("mouseout", function (param) {
+      mySlider = setInterval(slider, 3000);
+    });
 
   //
 });
