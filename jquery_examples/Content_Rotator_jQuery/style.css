@@ -1,0 +1,15 @@
+h2.pet-title {
+  width: 440px;
+  margin: 50px auto 0 auto;
+}
+
+#pet-container {
+  width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+}
+
+#pet-container p {
+  display: none;
+}
