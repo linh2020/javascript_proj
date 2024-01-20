@@ -94,12 +94,79 @@ footer p {
   background-color: #b40205;
 }
 
+.slide1 {
+  background: url(images/img-01.jpg) top left no-repeat;
+}
+
+.slide2 {
+  background: url(images/img-02.jpg) top left no-repeat;
+}
+
+.slide3 {
+  background: url(images/img-03.jpg) top left no-repeat;
+}
+
+.slide4 {
+  background: url(images/img-04.jpg) top left no-repeat;
+}
+
+.slide5 {
+  background: url(images/img-05.jpg) top left no-repeat;
+}
+
+.slides li div {
+  width: 100%;
+  position: relative;
+  padding-bottom: 50%;
+  background-size: cover;
+}
+
+.slides li div h2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #b40205;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  height: 25vw;
+  width: 25vw;
+
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  /* bottom: 100%; */
+
+  background-color: rgba(123, 157, 179, 0.3);
+  border-radius: 50%;
+  border: 5px solid #084d64;
+
+  text-align: center;
+  padding: 20px;
+  text-decoration: none;
+  font-family: "Osawald", sans-serif;
+  font-size: 4vw;
+  color: #03425b;
+}
+
+.light {
+  color: #ededed;
+}
+
 @media only screen and (min-width: 600px) {
   main.cat {
     display: flex;
   }
   .column {
     flex: 1;
+  }
+
+  .cta {
+    width: 20vw;
+    height: 20vw;
+    font-size: 2.5vw;
   }
 }
 
@@ -110,5 +177,11 @@ footer p {
   }
   header h1 {
     font-size: 90px;
+  }
+
+  .cta {
+    width: 150px;
+    height: 150px;
+    font-size: 17px;
   }
 }
