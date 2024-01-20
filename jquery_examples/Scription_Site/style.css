@@ -1,0 +1,59 @@
+/* Basic Resets */
+
+/* Basic typography*/
+
+/* Basic Page Sections */
+
+/* Header Styles */
+
+.logo img {
+  width: 110px;
+}
+
+/* Slider Styles */
+
+/* Overview Styles */
+
+/* Download Styles */
+#download div img {
+  width: 200px;
+}
+
+#download img {
+  width: 600px;
+}
+
+/* Pricing Styles */
+
+/* Listen Styles */
+
+/* Our Team Styles */
+#ourteam div img {
+  width: 150px;
+}
+
+#ourteam img {
+  width: 550px;
+}
+
+/* Footer Styles */
+
+footer nav ul li img{
+    width: 40px;
+}
+
+/* Tablet Size Styles */
+@media only screen and (min-width: 760px) {
+}
+
+/* large Tablet Size Styles */
+@media only screen and (min-width: 1020px) {
+}
+
+/* Desktop Size Styles */
+@media only screen and (min-width: 1200px) {
+}
+
+/* Maximum Size Styles */
+@media only screen and(min-width: 1500px) {
+}
