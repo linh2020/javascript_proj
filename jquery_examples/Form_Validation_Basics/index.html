@@ -44,17 +44,20 @@
           <!--  -->
           <p>
             <label for="name">Name</label><br />
-            <input type="text" name="name" id="name" required />
+            <input type="text" name="name" id="name" />
+            <span id="name-err"></span>
           </p>
 
           <p>
             <label for="email">Email</label><br />
-            <input type="email" name="email" id="email" required />
+            <input type="text" name="email" id="email" />
+            <span id="email-err"></span>
           </p>
 
           <p>
             <label for="url">Websites</label><br />
-            <input type="url" name="url" id="url" />
+            <input type="text" name="url" id="url" />
+            <span id="url-err"></span>
           </p>
 
           <p>
@@ -64,8 +67,8 @@
               id="comments"
               rows="10"
               cols="40"
-              required
             ></textarea>
+            <span id="comments-err"></span>
           </p>
 
           <p><input type="submit" value="send it" name="send" /></p>
