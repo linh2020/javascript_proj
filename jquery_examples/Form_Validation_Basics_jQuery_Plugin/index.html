@@ -18,6 +18,11 @@
       defer
     ></script>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"
+      defer
+    ></script>
+
     <link rel="stylesheet" href="style.css" />
 
     <!-- jQuery -->
@@ -44,19 +49,19 @@
           <!--  -->
           <p>
             <label for="name">Name</label><br />
-            <input type="text" name="name" id="name" />
+            <input type="text" name="name" id="name" required />
             <span id="name-err"></span>
           </p>
 
           <p>
             <label for="email">Email</label><br />
-            <input type="text" name="email" id="email" />
+            <input type="text" name="email" id="email" required />
             <span id="email-err"></span>
           </p>
 
           <p>
             <label for="url">Websites</label><br />
-            <input type="text" name="url" id="url" />
+            <input type="text" name="url" id="url" required />
             <span id="url-err"></span>
           </p>
 
@@ -69,6 +74,7 @@
               id="comments"
               rows="10"
               cols="40"
+              required
             ></textarea>
           </p>
 
