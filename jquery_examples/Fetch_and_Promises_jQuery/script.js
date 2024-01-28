@@ -11,4 +11,6 @@ $("#loaddata").click(function (e) {
     //
     $("#remotedata").html(data);
   });
+
+  //
 });
