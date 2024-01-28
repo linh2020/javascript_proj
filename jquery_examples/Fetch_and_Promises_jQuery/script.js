@@ -1,16 +1,23 @@
 //
-$("#loaddata").click(function (e) {
-  //
-  $("#remotedata").html('<img src="./images/spinner.gif" alt="">');
+document.getElementById("loaddata").addEventListener("click", getData);
 
-  $.ajax({
+function getData() {
+  //
+  document.getElementById("remotedata").innerHTML =
+    '<img src="./images/spinner.gif" alt="">';
+
+  const fetchPromise = fetch(
+    "https://cpe-web-assignments.ucdavis.edu/remotedata/index.php"
+  );
+
+  // console.log(fetchPromise);
+
+  fetchPromise.then(function (response) {
     //
-    url: "https://cpe-web-assignments.ucdavis.edu/remotedata/index.php",
-    cache: false,
-  }).done(function (data) {
-    //
-    $("#remotedata").html(data);
+    // console.log(response.text());
+    response.text().then(function (text) {
+      //
+      document.getElementById("remotedata").innerHTML = text;
+    });
   });
-
-  //
-});
+}
