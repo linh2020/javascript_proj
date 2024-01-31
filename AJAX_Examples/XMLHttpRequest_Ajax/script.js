@@ -131,3 +131,78 @@ function loadText() {
 
   //
 }
+
+// Get Json Object
+document.getElementById("button2").addEventListener("click", loadUser);
+
+function loadUser() {
+  //
+  let xhr = new XMLHttpRequest();
+  xhr.open("GET", "user.json", true);
+  xhr.onload = function (param) {
+    //
+    if (this.status == 200) {
+      console.log(typeof xhr.responseText); // String
+      document.getElementById("content-2").innerHTML =
+        xhr.responseText + "<br/><br/>";
+
+      let strToObj = JSON.parse(xhr.responseText);
+      console.log(typeof strToObj); // Object
+      document.getElementById("content-2").innerHTML = xhr.responseText;
+
+      //
+      let output = "";
+
+      output += `
+      <ul>
+        <li>Id: ${strToObj.id}</li>
+        <li>Name: ${strToObj.name}</li>
+        <li>Email: ${strToObj.email}</li>
+      </ul>
+      `;
+
+      document.getElementById("content-2").innerHTML += output;
+    }
+  };
+
+  xhr.send();
+}
+
+// Load Users
+document.getElementById("button3").addEventListener("click", loadUsers);
+
+function loadUsers() {
+  //
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("GET", "users.json", true);
+
+  xhr.onload = function (param) {
+    //
+    if (this.status == 200) {
+      //
+      console.log(typeof this.responseText); // String
+      document.getElementById("content-3").innerHTML =
+        this.responseText + "<br/><br/>";
+
+      let strToObj = JSON.parse(this.responseText);
+      console.log(typeof strToObj); // Object
+
+      let output = "";
+      strToObj.forEach((e) => {
+        output += `
+        <ul>
+            <li>Name: ${e.id}</li>
+            <li>Id: ${e.name}</li>
+            <li>Email: ${e.email}</li><br/>
+        </ul>`;
+      });
+
+      document.getElementById("content-3").innerHTML += output;
+
+      //
+    }
+  };
+
+  xhr.send();
+}
