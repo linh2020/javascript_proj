@@ -206,3 +206,38 @@ function loadUsers() {
 
   xhr.send();
 }
+
+// Get Github Users
+document.getElementById("button4").addEventListener("click", getGithubUsers);
+
+function getGithubUsers() {
+  //
+  let xhr = new XMLHttpRequest();
+
+  xhr.open("GET", "https://api.github.com/users", true);
+
+  xhr.onload = function () {
+    //
+    if (this.status == 200) {
+      let strToObj = JSON.parse(this.responseText);
+      console.log(strToObj);
+
+      let output = "";
+      strToObj.forEach((e) => {
+        //
+        output += `
+        <div class='user'>
+        <img src="${e.avatar_url}" alt="" width="70" height="70">
+        <ul>
+          <li>ID: ${e.id}</li>
+          <li>Login: ${e.login}</li>
+        </ul>
+        </div>`;
+
+        document.getElementById("content-4").innerHTML = output;
+      });
+    }
+  };
+
+  xhr.send();
+}

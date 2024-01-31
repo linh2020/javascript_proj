@@ -1,0 +1,12 @@
+.user {
+  display: flex;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  padding: 4px;
+  align-items: center;
+}
+
+.user ul {
+  margin-top: 18px;
+  list-style-type: none;
+}
