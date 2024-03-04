@@ -1,243 +1,45 @@
-document.getElementById("button").addEventListener("click", loadText);
+const getBtn = document.getElementById("get-btn");
+const postBtn = document.getElementById("post-btn");
 
-function loadText() {
-  // Create XHR Object
-  let xhr = new XMLHttpRequest();
-  console.log(
-    "before open: ",
-    "readyState ",
-    xhr.readyState,
-    "status ",
-    xhr.status,
-    "status text ",
-    xhr.statusText
-  ); // before open:  readyState  0 status  0 status text
-
-  //   Open - type, url/file async
-  xhr.open("GET", "sample.txt", true);
-  console.log(
-    "after open: ",
-    "readyState ",
-    xhr.readyState,
-    "status ",
-    xhr.status,
-    "status text ",
-    xhr.statusText
-  ); // after open:  readyState  1 status  0 status text
-
-  // OPTIONAL - used for loaders
-  xhr.onprogress = function (param) {
-    //
-    console.log(
-      "after onprogress: ",
-      "readyState ",
-      xhr.readyState,
-      "status ",
-      xhr.status,
-      "status text ",
-      xhr.statusText
-    ); // after open:  readyState  1 status  0 status text
-  };
-
-  xhr.onreadystatechange = function () {
-    //
-    console.log(
-      "after onreadystatechange: ",
-      "readyState ",
-      xhr.readyState,
-      "status ",
-      xhr.status,
-      "status text ",
-      xhr.statusText
-    ); // after open:  readyState  1 status  0 status text
-
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(
-        "after if: ",
-        "readyState ",
-        xhr.readyState,
-        "status ",
-        xhr.status,
-        "status text ",
-        xhr.statusText
-      ); // after open:  readyState  1 status  0 status text
-      document.getElementById("content").innerHTML = this.responseText;
-      //   ;
-    } else {
-      console.log(
-        "-------------after else =====>>>: ",
-        "readyState ",
-        xhr.readyState,
-        "status ",
-        xhr.status,
-        "status text ",
-        xhr.statusText
-      ); // after open:  readyState  1 status  0 status text
-    }
-
-    //
-  };
-
-  //   xhr.onload = function (param) {
-  //     //
-  //     if (this.status == 200) {
-  //       console.log(
-  //         "after if - onload: ",
-  //         "readyState ",
-  //         xhr.readyState,
-  //         "status ",
-  //         xhr.status,
-  //         "status text ",
-  //         xhr.statusText
-  //       ); // after if - onload:  readyState  4 status  200 status text  OK
-
-  //       document.getElementById("content").innerHTML = xhr.responseText;
-
-  //       //
-  //     } else {
-  //       console.log(
-  //         "after else - onload: ",
-  //         "readyState ",
-  //         xhr.readyState,
-  //         "status ",
-  //         xhr.status,
-  //         "status text ",
-  //         xhr.statusText
-  //       ); // after else - onload:  readyState  4 status  404 status text  Not Found
-  //     }
-  //   };
-
-  console.log(
-    "before send: ",
-    "readyState ",
-    xhr.readyState,
-    "status ",
-    xhr.status,
-    "status text ",
-    xhr.statusText
-  ); // before send:  readyState  1 status  0 status text
-
-  xhr.send();
-
-  console.log(
-    "after send: ",
-    "readyState ",
-    xhr.readyState,
-    "status ",
-    xhr.status,
-    "status text ",
-    xhr.statusText
-  ); // after send:  readyState  1 status  0 status text
-
+const sendHttpRequest = (method, url, data) => {
   //
-}
+  const promise = new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, url);
 
-// Get Json Object
-document.getElementById("button2").addEventListener("click", loadUser);
+    if (data) xhr.setRequestHeader("Content-Type", "application/json");
 
-function loadUser() {
-  //
-  let xhr = new XMLHttpRequest();
-  xhr.open("GET", "user.json", true);
-  xhr.onload = function (param) {
-    //
-    if (this.status == 200) {
-      console.log(typeof xhr.responseText); // String
-      document.getElementById("content-2").innerHTML =
-        xhr.responseText + "<br/><br/>";
+    xhr.responseType = "json"; // convert json string to json object
+    xhr.onload = () => {
+      if (xhr.status >= 400) {
+        reject(xhr.response);
+      } else {
+        resolve(xhr.response);
+      }
+    };
 
-      let strToObj = JSON.parse(xhr.responseText);
-      console.log(typeof strToObj); // Object
-      document.getElementById("content-2").innerHTML = xhr.responseText;
+    xhr.onerror = () => reject("Something went wrong");
 
-      //
-      let output = "";
+    xhr.send(JSON.stringify(data));
+  });
 
-      output += `
-      <ul>
-        <li>Id: ${strToObj.id}</li>
-        <li>Name: ${strToObj.name}</li>
-        <li>Email: ${strToObj.email}</li>
-      </ul>
-      `;
+  return promise;
+};
 
-      document.getElementById("content-2").innerHTML += output;
-    }
-  };
+// "https://reqres.in/api/users"
+const getData = () =>
+  sendHttpRequest("GET", "https://reqres.in/api/users").then((responseData) =>
+    console.log(responseData)
+  );
 
-  xhr.send();
-}
+// https://reqres.in/api/register
+const sendData = () =>
+  sendHttpRequest("POST", "https://reqres.in/api/register", {
+    email: "eve.holt@reqres.in",
+    // password: "pistol",
+  })
+    .then((responseData) => console.log(responseData))
+    .catch((err) => console.log(err));
 
-// Load Users
-document.getElementById("button3").addEventListener("click", loadUsers);
-
-function loadUsers() {
-  //
-  let xhr = new XMLHttpRequest();
-
-  xhr.open("GET", "users.json", true);
-
-  xhr.onload = function (param) {
-    //
-    if (this.status == 200) {
-      //
-      console.log(typeof this.responseText); // String
-      document.getElementById("content-3").innerHTML =
-        this.responseText + "<br/><br/>";
-
-      let strToObj = JSON.parse(this.responseText);
-      console.log(typeof strToObj); // Object
-
-      let output = "";
-      strToObj.forEach((e) => {
-        output += `
-        <ul>
-            <li>Name: ${e.id}</li>
-            <li>Id: ${e.name}</li>
-            <li>Email: ${e.email}</li><br/>
-        </ul>`;
-      });
-
-      document.getElementById("content-3").innerHTML += output;
-
-      //
-    }
-  };
-
-  xhr.send();
-}
-
-// Get Github Users
-document.getElementById("button4").addEventListener("click", getGithubUsers);
-
-function getGithubUsers() {
-  //
-  let xhr = new XMLHttpRequest();
-
-  xhr.open("GET", "https://api.github.com/users", true);
-
-  xhr.onload = function () {
-    //
-    if (this.status == 200) {
-      let strToObj = JSON.parse(this.responseText);
-      console.log(strToObj);
-
-      let output = "";
-      strToObj.forEach((e) => {
-        //
-        output += `
-        <div class='user'>
-        <img src="${e.avatar_url}" alt="" width="70" height="70">
-        <ul>
-          <li>ID: ${e.id}</li>
-          <li>Login: ${e.login}</li>
-        </ul>
-        </div>`;
-
-        document.getElementById("content-4").innerHTML = output;
-      });
-    }
-  };
-
-  xhr.send();
-}
+getBtn.addEventListener("click", getData);
+postBtn.addEventListener("click", sendData);
